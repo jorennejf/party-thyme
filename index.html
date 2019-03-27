@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Loads external files -->
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+
+    <title>Party Thyme Catering</title>
+    <link rel="shortcut icon" href="images/header_icon.png">
+
+    <!-- Custom JavaScript -->
+    <script type="text/javascript">
+      /* BACK TO TOP */
+      // When the user scrolls down 400px from the top of the document, show the button
+      $(window).scroll(function() {
+          var height = $(window).scrollTop();
+          if (height > 400) {
+              $('#backtop').fadeIn();
+          } else {
+              $('#backtop').fadeOut();
+          }
+      });
+      // When the user clicks on the button, scroll to the top of the document
+      $(document).ready(function() {
+          $("#backtop").click(function(event) {
+              event.preventDefault();
+              $("html, body").animate({ scrollTop: 0 }, "slow");
+              return false;
+          });
+      });
+      /* END BACK TO TOP */
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta name="author" content="Jorenne Flores">
+    <meta name="description" content="Welcome to Party Thyme's website!" >
+    <meta name="keywords" content="Party Thyme, Catering, Food, Restaurant"> 
+    
+  </head>
+
+  <body>
+
+    <header class="header">
+      <img class="logo-dark" src="images/logo_dark.png">    
+      <img class="logo-white" src="images/logo_white.png">    
+      <input class="menu-mobile" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul class="menu">
+        <li><a href="#" class="nav">Home</a></li>
+        <li><a href="#about" class="nav">About</a></li>
+        <li><a href="#menu" class="nav">Menu</a></li>
+        <li><a href="#gallery" class="nav">Gallery</a></li>
+        <li><a href="#contact" class="nav">Contact</a></li>
+      </ul>
+    </header>
+
+    <!-- BACK TO TOP -->
+    <img onclick="topFunction()" id="backtop" src="images/top.png" />
+
+    <div class="jumbotron">
+
+      <div id="banner"></div>
+
+      <div id="about"></div>
+
+      <div id="menu"></div>
+
+      <div id="gallery"></div>
+
+      <div id="contact">
+        <a target="_blank" href="https://www.facebook.com/thepartythyme/"><img src="images/fb.png"> Party Thyme Catering</a>
+      </div>
+
+    </div>
+
+    <footer>
+      <hr>
+      <div align="center">&copy;2019 Party Thyme Catering</div>
+      <div align="center">Website Made by <a target="_blank" href="https://jorennejf.github.io/">Jorenne Flores</a></div>
+    </footer>
+
+  </body>
+</html>

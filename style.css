@@ -1,0 +1,13 @@
+*{
+  font-family: 'Raleway', sans-serif;
+  color: #5a5a5a;
+}
+
+#contact img{
+  height: 15px;
+}
+
+/* Desktop Only */
+@media (min-width: 768px) {
+  /* add css here */
+}
