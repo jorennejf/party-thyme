@@ -3,11 +3,27 @@
   color: #5a5a5a;
 }
 
+.container{
+	margin-top: 67px;
+}
+
+.section{
+	padding-top: 67px;
+	margin-top: -67px;
+}
+
 #contact img{
-  height: 15px;
+  height: 20px;
 }
 
 /* Desktop Only */
 @media (min-width: 768px) {
-  /* add css here */
+	.container{
+		margin-top: 168px;
+	}
+
+	.section{
+		padding-top: 168px;
+		margin-top: -168px;
+	}
 }
