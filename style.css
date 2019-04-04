@@ -3,13 +3,25 @@
   color: #5a5a5a;
 }
 
+.jumbotron{
+	padding-left: 0;
+	padding-right: 0;
+	padding-top: 67px;
+}
+
 .container{
-	margin-top: 35px;
+	max-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .section{
+	width: 90%;
+	max-width: 740px;
+	margin: 0 auto;
 	padding-top: 67px;
 	margin-top: -67px;
+	margin-bottom: 20px;
 }
 
 #banner{
@@ -17,10 +29,11 @@
 	width: 100%;
 	overflow: hidden;
 	position: relative;
+	margin-bottom: 20px;
 }
 
 #banner-bg{
-	background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7)), url("images/banner.jpg");
+	background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5)), url("images/banner.jpg");
 	background-size: cover;
 	background-position: center;
 	position: absolute;
@@ -37,10 +50,15 @@
 	z-index: 2;
 	width: 100%;
 	color: white;
-	text-shadow: 2px 2px black;
+	text-shadow: 2px 2px 3px black;
 	font-size: 3em;
 	text-align: center;
 	padding-top: 65px;
+}
+
+#about img{
+	display: block;
+	margin: 15px auto;
 }
 
 #contact img{
@@ -50,17 +68,19 @@
 /* Desktop Only */
 @media (min-width: 768px) {
 
-	.container{
-		margin-top: 104px;
+	.jumbotron{
+		padding-top: 188px;
 	}
 
 	.section{
-		padding-top: 168px;
-		margin-top: -168px;
+		padding-top: 68px;
+		margin-top: -68px;
+		margin-bottom: 50px;
 	}
 
 	#banner{
 		height: 350px;
+		margin-bottom: 50px;
 	}
 
 	#banner-bg{
@@ -71,6 +91,10 @@
 		text-align: left;
 		padding-top: 110px;
 		padding-left: 10%;
+	}
+
+	#about img{
+		margin: auto;
 	}
 
 }

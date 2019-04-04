@@ -140,7 +140,7 @@ footer{
 /* Desktop Only */
 @media (min-width: 768px) {
   .logo-dark{
-    height: 90px;
+    height: 110px;
     margin-top: 10px !important;
   }
   .logo-white{
