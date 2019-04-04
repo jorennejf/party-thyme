@@ -3,6 +3,10 @@
   color: #5a5a5a;
 }
 
+html{
+	scroll-behavior: smooth;
+}
+
 .jumbotron{
 	padding-left: 0;
 	padding-right: 0;
