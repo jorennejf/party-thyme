@@ -71,6 +71,23 @@ hr.footer{
 	margin: 15px auto;
 }
 
+#gallery img, #gallery p{
+	display: none;
+}
+
+#gallery .gallery-grid{
+	cursor: pointer;
+	background-size: cover;
+	background-position: center;
+	height: 175px;
+	width: 48%;
+	margin: 1%;
+}
+
+.modal-img{
+	width: 100%;
+}
+
 #contact img{
   height: 20px;
 }
@@ -128,6 +145,12 @@ hr.footer{
 
 	#about img{
 		margin: auto;
+	}
+
+	#gallery .gallery-grid{
+		height: 200px;
+		width: 31%;
+		margin: 1%;
 	}
 
 	#contact-form{

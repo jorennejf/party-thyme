@@ -2,15 +2,18 @@
 <html>
 
   <head>
+    <!-- jQuery -->
+    <script src="jquery-3.3.1.min.js"></script>
 
     <!-- Bootstrap -->
     <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Loads external files -->
+    <script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom external files -->
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="style.css">
-    <script src="jquery-3.3.1.min.js"></script>
 
+    <!-- Other external files -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -51,6 +54,16 @@
           }
         }
       });
+
+      /* ADDS IMAGE AND CAPTION TO MODAL */
+      $(document).on('click', '.gallery-grid', function(){
+        var myIMG = $(this).find('img');
+        myIMG = myIMG.attr('src');
+        $('.modal-img').attr('src',myIMG);
+        var myCap = $(this).find('p');
+        $('.caption').html(myCap);
+        //TODO sometimes caption doesnt appear
+      });
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
@@ -85,6 +98,22 @@
     <div class="jumbotron">
       <div class="container">
 
+        <!-- GALLERY MODAL -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <img class="modal-img" src="#" />
+                <p class="caption"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div id="banner">
           <div id="banner-bg"></div>
           <div id="banner-fg">Made to order.</div>
@@ -109,6 +138,32 @@
 
         <div id="gallery" class="section">
           <h2 align="center">GALLERY</h2>
+          <div class="row">
+            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg);">
+              <img src="https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg" />
+              <p>caption here</p>
+            </div>
+            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg);">
+              <img src="https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg" />
+              <p>caption2 here</p>
+            </div>
+            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg);">
+              <img src="https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg" />
+              <p>caption3 here</p>
+            </div>
+            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg);">
+              <img src="https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg" />
+              <p>caption4 here</p>
+            </div>
+            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg);">
+              <img src="https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg" />
+              <p>caption5 here</p>
+            </div>
+            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg);">
+              <img src="https://d2u384mreupnc8.cloudfront.net/assets/movieImages/1554237076.jpg" />
+              <p>caption6 here</p>
+            </div>
+          </div>
         </div>
 
         <div id="contact" class="section">
