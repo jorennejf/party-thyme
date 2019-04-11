@@ -57,12 +57,11 @@
 
       /* ADDS IMAGE AND CAPTION TO MODAL */
       $(document).on('click', '.gallery-grid', function(){
+        var myCap = $(this).find('p');
+        $('.caption').html(myCap); //TODO sometimes caption doesnt appear
         var myIMG = $(this).find('img');
         myIMG = myIMG.attr('src');
         $('.modal-img').attr('src',myIMG);
-        var myCap = $(this).find('p');
-        $('.caption').html(myCap);
-        //TODO sometimes caption doesnt appear
       });
     </script>
 
