@@ -7,6 +7,10 @@ html{
 	scroll-behavior: smooth;
 }
 
+.btn{
+	border-radius: 0;
+}
+
 .jumbotron{
 	padding: 0;
 	padding-top: 67px;
@@ -168,6 +172,12 @@ hr.footer{
 		height: 200px;
 		width: 31%;
 		margin: 1%;
+	}
+
+	#gallery .gallery-grid:hover{
+		filter: brightness(0.8);
+		-webkit-transition: filter 0.25s; /* Safari */
+  		transition: filter 0.25s;
 	}
 
 	#contact-form{
