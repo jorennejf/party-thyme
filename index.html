@@ -12,6 +12,7 @@
     <!-- Custom external files -->
     <link rel="stylesheet" href="nav.css">
     <link rel="stylesheet" href="style.css">
+    <script src="gallery.js"></script>
 
     <!-- Other external files -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
@@ -55,7 +56,7 @@
         }
       });
 
-      /* ADDS IMAGE AND CAPTION TO MODAL */
+      /* ADDS IMAGE AND CAPTION TO MODAL --> NO LONGER BEING USED FOR NOW
       $(document).on('click', '.gallery-grid', function(){
         var myCap = $(this).find('p');
         $('.caption').html(myCap); //TODO sometimes caption doesnt appear
@@ -63,6 +64,7 @@
         myIMG = myIMG.attr('src');
         $('.modal-img').attr('src',myIMG);
       });
+      */
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
@@ -98,20 +100,45 @@
       <div class="container">
 
         <!-- GALLERY MODAL -->
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <img class="modal-img" src="#" />
-                <p class="caption"></p>
-              </div>
+        <div id="myModal" class="modal">
+          <span class="close-btn" onclick="closeModal()">&times;</span>
+          <div class="modal-content">
+
+            <div class="mySlides">
+              <img src="images/sauteed-lobster.jpg" class="modal-image" alt="Sauteed Lobster">
+            </div>
+
+            <div class="mySlides">
+              <img src="images/lunch-box.jpg" class="modal-image" alt="Lunch Box">
+            </div>
+
+            <div class="mySlides">
+              <img src="images/dessert-table.jpg" class="modal-image" alt="Dessert Table">
+            </div>
+
+            <div class="mySlides">
+              <img src="images/salmon.jpg" class="modal-image" alt="Salmon with Cilantro Mini Slider Appetizer">
+            </div>
+
+            <div class="mySlides">
+              <img src="images/table-setup.jpg" class="modal-image" alt="Our Table Setup">
+            </div>
+
+            <div class="mySlides">
+              <img src="images/desserts.jpg" class="modal-image" alt="Desserts!">
+            </div>
+
+            <!-- Next/previous controls -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Caption text -->
+            <div class="caption-container">
+              <p id="caption"></p>
             </div>
           </div>
         </div>
+        <!-- END GALLERY MODAL -->
 
         <div id="banner">
           <div id="banner-bg"></div>
@@ -139,27 +166,27 @@
         <div id="gallery" class="section">
           <h2 align="center">GALLERY</h2>
           <div class="row">
-            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(images/sauteed-lobster.jpg);">
+            <div class="gallery-grid" onclick="openModal();currentSlide(1);" style="background-image: url(images/sauteed-lobster.jpg);">
               <img src="images/sauteed-lobster.jpg" />
               <p>Sauteed Lobster</p>
             </div>
-            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(images/lunch-box.jpg);">
+            <div class="gallery-grid" onclick="openModal();currentSlide(2);" style="background-image: url(images/lunch-box.jpg);">
               <img src="images/lunch-box.jpg" />
               <p>Lunch Box</p>
             </div>
-            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(images/dessert-table.jpg);">
+            <div class="gallery-grid" onclick="openModal();currentSlide(3);" style="background-image: url(images/dessert-table.jpg);">
               <img src="images/dessert-table.jpg" />
               <p>Dessert Table</p>
             </div>
-            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(images/salmon.jpg);">
+            <div class="gallery-grid" onclick="openModal();currentSlide(4);" style="background-image: url(images/salmon.jpg);">
               <img src="images/salmon.jpg" />
               <p>Salmon with Cilantro Mini Slider Appetizer</p>
             </div>
-            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(images/table-setup.jpg);">
+            <div class="gallery-grid" onclick="openModal();currentSlide(5);" style="background-image: url(images/table-setup.jpg);">
               <img src="images/table-setup.jpg" />
               <p>Our Table Setup</p>
             </div>
-            <div class="gallery-grid" data-toggle="modal" data-target="#myModal" style="background-image: url(images/desserts.jpg);">
+            <div class="gallery-grid" onclick="openModal();currentSlide(6);" style="background-image: url(images/desserts.jpg);">
               <img src="images/desserts.jpg" />
               <p>Desserts!</p>
             </div>
