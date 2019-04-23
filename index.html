@@ -65,6 +65,18 @@
         $('.modal-img').attr('src',myIMG);
       });
       */
+
+      /* CLOSES GALLERY MODAL WHEN CLICKED OUTSIDE (fix width so can click sides too) */
+      $(document).mouseup(function(e) 
+      {
+        var container = $(".modal-content");
+
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) 
+        {
+           $("#myModal").hide();
+        }
+      });
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
