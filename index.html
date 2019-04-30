@@ -77,6 +77,16 @@
            $("#myModal").hide();
         }
       });
+
+      /* OPENS/CLOSES MOBILE NAVBAR */
+      function toggleNav(){
+        if($('.menu').css('right') == '0px'){
+          $('.menu').css('right', '-500px');
+        }
+        else{
+          $('.menu').css('right', '0px');
+        }
+      }
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
@@ -94,14 +104,13 @@
     <header class="header">
       <img class="logo-dark" src="images/logo_dark.png">    
       <img class="logo-white" src="images/logo_white.png">    
-      <input class="menu-mobile" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <span class="menu-icon" onclick="toggleNav();"><span class="navicon"></span></span>
       <ul class="menu">
-        <li><a href="#" class="nav">Home</a></li>
-        <li><a href="#about" class="nav">About</a></li>
-        <li><a href="#menu" class="nav">Menu</a></li>
-        <li><a href="#gallery" class="nav">Gallery</a></li>
-        <li><a href="#contact" class="nav">Contact</a></li>
+        <li><a href="#" class="nav" onclick="toggleNav();">Home</a></li>
+        <li><a href="#about" class="nav" onclick="toggleNav();">About</a></li>
+        <li><a href="#menu" class="nav" onclick="toggleNav();">Menu</a></li>
+        <li><a href="#gallery" class="nav" onclick="toggleNav();">Gallery</a></li>
+        <li><a href="#contact" class="nav" onclick="toggleNav();">Contact</a></li>
       </ul>
     </header>
 
@@ -211,7 +220,7 @@
             <div class="col-sm-12 col-md-6">
               <p>We currently serve all over the Bay Area for corporate/company meetings, banquets, weddings, birthdays, and other special occasions. Fill out our contact form and we'll get back to you soon!</p>
               <p><i class="far fa-envelope"></i> <a href="mailto:kvu94538@yahoo.com">kvu94538@yahoo.com</a></p>
-              <p><i class="fas fa-phone"></i> <a href="tel:+5107964300">(510)796-4300</a></p>
+              <p><i class="fas fa-phone"></i> <a href="tel:+5106489780">(510)648-9780</a></p>
               <p><img src="images/fb.png"> <a target="_blank" href="https://www.facebook.com/thepartythyme/">Party Thyme Catering</a></p>
             </div>
             <div class="col-sm-12 col-md-6">
