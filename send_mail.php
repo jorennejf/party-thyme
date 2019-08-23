@@ -21,11 +21,6 @@ $name = $_REQUEST['name'] ;
 $email_address = $_REQUEST['email'] ;
 $phone = $_REQUEST['tel'] ;
 $comments = $_REQUEST['message'] ;
-$msg = 
-"Name: " . $first_name . "\r\n" . 
-"Email: " . $email_address . "\r\n" . 
-"Phone Number: " . $phone . "\r\n" . 
-"Comments: " . $comments ;
 
 /*
 The following function checks for email injection.
@@ -51,30 +46,64 @@ function isInjected($str) {
 }
 
 // If the user tries to access this script directly
-if (!isset($_REQUEST['email'])) {
+if (!isset($_REQUEST['email']) || !isset($_POST['submit'])) {
 	header( "Location: $feedback_page" ); //redirect them to the form
 }
 
 // If the form fields are empty, redirect to the error page.
-/*
-elseif (empty($first_name) || empty($email_address)) {
-	header( "Location: $error_page" );
+elseif (empty($name) || empty($email_address) || empty($comments)) {
+	header( "Location: $feedback_page" ); //redirect them to the form
 }
-*/
 
 /* 
 If email injection is detected, redirect to the error page.
 If you add a form field, you should add it here.
 */
 elseif ( isInjected($email_address) || isInjected($name)  || isInjected($phone)|| isInjected($comments) ) {
-	//TODO
-	//header( "Location: $error_page" );
+	header( "Location: $feedback_page" ); //redirect them to the form
 }
 
-// If we passed all previous tests, send the email
-else {
+// If user properly clicks submit button
+elseif (isset($_POST['submit'])) {
+	$name2 = htmlspecialchars(stripslashes(trim($name)));
+	$email_address2 = htmlspecialchars(stripslashes(trim($email_address)));
+	$phone2 = htmlspecialchars(stripslashes(trim($phone)));
+	$comments2 = htmlspecialchars(stripslashes(trim($comments)));
 
-	//TODO uncomment: mail( "$webmaster_email", "Feedback Form Results", $msg );
+	if(!preg_match("/^[A-Za-z .'-]+$/", $name2)){
+    	$error = 'Invalid name';
+    }
+    if(!preg_match("/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/", $email_address2)){
+      $error = 'Invalid email';
+    }
+    if(strlen($phone2)>=11 && !preg_match('/^[0-9]*$/', $phone2)){
+      $error = 'Invalid phone';
+    }
+    if(strlen($comments2) === 0){
+      $error = 'Your message should not be empty';
+    }
+
+    //Start building the email
+    $msg = 
+	"You have received a message via party-thyme-catering.com!" . "\r\n" . 
+	"Name: " . $name2 . "\r\n" . 
+	"Email: " . $email_address2 . "\r\n" . 
+	"Phone Number: " . $phone2 . "\r\n" . 
+	"Message: " . $comments2 ;
+
+	// make sure each line doesn't exceed 70 characters
+	$msg = wordwrap($msg, 70);
+
+	// To send HTML mail, the Content-type header must be set
+	$headers = "From: ".$webmaster_email."\r\n"; //double check if this works properly
+	$headers .= "Reply-To: ".$webmaster_email."\r\n"; //double check if this works properly
+	$headers .= "X-Mailer: PHP/".phpversion();
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-type: text; charset=iso-8859-1\r\n";
+
+    //If all tests passed, send the email
+    if(!isset($error)) mail( "$webmaster_email", "Online Catering Order Request", $msg, $headers);
+    //TODO: should it redirect to a new page if successfully sent? yes.
 
 	header( "Location: $feedback_page" );
 }
