@@ -77,6 +77,21 @@ hr.footer{
 	height: auto;
 }
 
+#menu{
+	text-align: center;
+}
+
+#menu .coupon{
+	text-decoration: none;
+	width: 49%;
+	border: 1px dotted #5a5a5a;
+	padding: 5%;
+}
+
+#menu .coupon-1{
+	margin-right: 2%;
+}
+
 #gallery img, #gallery p{ /* currently not used but maybe later if we don't want to hard code images */
 	display: none;
 }
@@ -148,6 +163,16 @@ hr.footer{
 	#about img{
 		margin: auto;
 		width: 225px;
+	}
+
+	#menu .coupon:hover{
+		cursor: pointer;
+		text-decoration: none;
+		background-color: #343a40;
+	}
+
+	#menu .coupon:hover h1, #menu .coupon:hover h2{
+		color: white;
 	}
 
 	#gallery .gallery-grid{
