@@ -142,7 +142,7 @@ footer{
     clear: none;
     max-height: none;
     margin: auto;
-    width: 471px;
+    width: 474px;
   }
   .header .menu-icon {
     display: none;
@@ -150,7 +150,7 @@ footer{
 }
 
 /* Mobile Only */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .logo-dark{
     display: none;
   }

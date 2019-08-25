@@ -83,6 +83,11 @@ elseif (isset($_POST['submit'])) {
       $error = 'Your message should not be empty';
     }
 
+    $ccbcc = "/(content-type|bcc:|cc:)/i";
+    if(preg_match($ccbcc, $name2) || preg_match($ccbcc, $email_address2) || preg_match($ccbcc, $phone2) || preg_match($ccbcc, $comments2)){
+    	$error = 'No meta/header injections';
+    }
+
     //Start building the email
     $msg = 
 	"You have received a message via party-thyme-catering.com!" . "\r\n" . 
@@ -102,9 +107,13 @@ elseif (isset($_POST['submit'])) {
 	$headers .= "Content-type: text; charset=iso-8859-1\r\n";
 
     //If all tests passed, send the email
-    if(!isset($error)) mail( "$webmaster_email", "Online Catering Order Request", $msg, $headers);
-    //TODO: should it redirect to a new page if successfully sent? yes.
-
-	header( "Location: $feedback_page" );
+    if(!isset($error)){
+    	mail( "$webmaster_email", "Online Catering Order Request", $msg, $headers);
+    	header( "Location: ".$feedback_page."?sent=success" );
+    }
+    else{
+    	header( "Location: ".$feedback_page."?sent=fail" );	
+    }
+	//header( "Location: $feedback_page" );
 }
 ?>
