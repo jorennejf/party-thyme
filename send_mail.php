@@ -109,10 +109,10 @@ elseif (isset($_POST['submit'])) {
     //If all tests passed, send the email
     if(!isset($error)){
     	mail( "$webmaster_email", "Online Catering Order Request", $msg, $headers);
-    	header( "Location: ".$feedback_page."?sent=success" );
+    	header( 'Location: '.$feedback_page.'?sent=succ' );
     }
     else{
-    	header( "Location: ".$feedback_page."?sent=fail" );	
+    	header( 'Location: '.$feedback_page.'?sent=fail' );	
     }
 	//header( "Location: $feedback_page" );
 }

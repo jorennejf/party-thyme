@@ -23,6 +23,7 @@
 
     <!-- Custom JavaScript -->
     <script type="text/javascript">
+
       /* BACK TO TOP */
       // When the user scrolls down 400px from the top of the document, show the button
       $(window).scroll(function() {
@@ -87,6 +88,48 @@
           $('.menu').css('right', '0px');
         }
       }
+
+      /* PRINTS OUT MESSAGE IF FORM WAS SUCCESSFULLY SENT OR NOT */
+      $( window ).on( "load", function() {
+        /* if we use the code block below, change index.html to index.php
+        <?php $status = $_GET["sent"]; ?>
+        var status = "<?php if(!empty($status)) echo $status; ?>";
+        if(status == 'succ'){
+          alert('Thank you! Your form has been submitted.');
+        }
+        else if(status =='fail'){
+          alert('Error submitting form. Please email us directly at kvu94538@yahoo.com.');
+        }
+        */
+        /*
+        var req = new XMLHttpRequest();
+        req.open('GET', document.location, false);
+        req.send(null);
+        var headers = req.getAllResponseHeaders().toLowerCase();
+        alert(headers);
+        */
+        /*
+        $.get('index.html', function(data){
+          alert(data);
+        })
+        .fail(function(){
+          console.log('Error reading HTTP headers');
+        });
+        */
+        var url = window.location.href;
+        var i = url.indexOf('?');
+        var j = url.indexOf('=');
+        var sent = url.substring(i+1,j);
+        var stat = url.substring(j+1, j+5);
+        if(sent == 'sent'){
+          if(stat == 'succ'){
+            alert('Thank you! Your form has been submitted.');
+          }
+          else if(stat =='fail'){
+            alert('Error submitting form. Please email us directly at kvu94538@yahoo.com.');
+          }
+        }
+      });
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
@@ -95,7 +138,7 @@
     <meta http-equiv="Expires" content="-1">
     <meta name="author" content="Jorenne Flores">
     <meta name="description" content="Welcome to Party Thyme's website!" >
-    <meta name="keywords" content="Party Thyme, Catering, Food, Restaurant"> 
+    <meta name="keywords" content="Party Thyme, Catering, Asian, Food, Restaurant"> 
     
   </head>
 

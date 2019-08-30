@@ -8,8 +8,10 @@ function closeModal() {
   document.getElementById('myModal').style.display = "none";
 }
 
+/* idk what this is even for
 var slideIndex = 1;
 showSlides(slideIndex);
+*/
 
 // Next/previous controls
 function plusSlides(n) {
