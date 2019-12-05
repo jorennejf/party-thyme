@@ -279,6 +279,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
               <!--<form method="POST" action="https://formspree.io/TODO@email.com" id="contact-form">-->
+              <!-- commented because form should not be sending anything
               <form method="POST" action="send_mail.php" id="contact-form">
                 <input type="text" name="name" placeholder="*Your Name" required maxlength="25" style="margin-top: 2px;">
                 <input type="email" name="email" placeholder="*Your Email" required maxlength="40">
@@ -286,6 +287,15 @@
                 <textarea name="message" placeholder="*Your Message (max 300 char)" required maxlength="300"></textarea>
                 <button type="submit" class="btn btn-dark">Submit</button>
               </form>
+              -->
+
+              <!-- below form code does not send -->
+              <input type="text" name="name" placeholder="*Your Name" required maxlength="25" style="margin-top: 2px;">
+              <input type="email" name="email" placeholder="*Your Email" required maxlength="40">
+              <input type="tel" name="tel" placeholder="Your Number" maxlength="11">
+              <textarea name="message" placeholder="*Your Message (max 300 char)" required maxlength="300"></textarea>
+              <button type="submit" class="btn btn-dark" onclick="alert('Demo mode only. Email was not sent.');">Submit</button>
+
             </div>
           </div>
         </div>
